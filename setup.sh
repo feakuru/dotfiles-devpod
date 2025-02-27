@@ -2,6 +2,8 @@
 export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 
+apt -y update
+apt -y upgrade
 
 packages=(
     curl
@@ -12,16 +14,13 @@ packages=(
     unzip
     gcc
     ripgrep
-    npm
-    lazygit
     zsh
-    yazi
     zoxide
 )
 
 for package in "${packages[@]}"; do
 	echo "Installing $package..."
-	apt-get install "$package"
+	apt-get -y install "$package"
 done
 
 echo "All packages from the setup script have been installed."
