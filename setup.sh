@@ -32,5 +32,6 @@ git clone https://github.com/feakuru/nvim-config.git "$XDG_CONFIG_HOME"/nvim
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
+sudo chsh --shell /bin/zsh
 
 echo "All configs have been set up."
