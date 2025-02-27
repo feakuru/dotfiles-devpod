@@ -22,7 +22,7 @@ for package in "${packages[@]}"; do
 	sudo apt -y install "$package"
 done
 
-echo "deb https://deb.debian.org/debian unstable main" | sudo tee -a /etc/apt/sources.list
+echo "deb https://deb.debian.org/debian experimental main" | sudo tee -a /etc/apt/sources.list
 sudo apt -y update
 sudo apt -y install neovim
 
