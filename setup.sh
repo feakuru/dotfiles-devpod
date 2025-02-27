@@ -25,13 +25,13 @@ done
 echo "deb https://deb.debian.org/debian unstable main" | sudo tee -a /etc/apt/sources.list
 echo "deb https://deb.debian.org/debian experimental main" | sudo tee -a /etc/apt/sources.list
 sudo apt -y update
-sudo apt -y install neovim
+sudo apt -t experimental -y install neovim
 
 echo "All packages from the setup script have been installed."
 
 git clone https://github.com/feakuru/nvim-config.git "$XDG_CONFIG_HOME"/nvim
-rm -rf $ZSH
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo rm -rf /home/vscode/.oh-my-zsh
+sudo su -s /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" - vscode
 
 ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
 sudo chsh vscode --shell /bin/zsh
