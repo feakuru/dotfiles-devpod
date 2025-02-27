@@ -26,6 +26,7 @@ echo "deb https://deb.debian.org/debian unstable main" | sudo tee -a /etc/apt/so
 echo "deb https://deb.debian.org/debian experimental main" | sudo tee -a /etc/apt/sources.list
 sudo apt -y update
 sudo apt -t experimental -y install neovim
+sudo apt install fzf
 
 echo "All packages from the setup script have been installed."
 
