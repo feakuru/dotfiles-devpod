@@ -2,8 +2,9 @@
 export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 
-apt -y update
-apt -y upgrade
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt -y update
+sudo apt -y upgrade
 
 packages=(
     curl
@@ -20,7 +21,7 @@ packages=(
 
 for package in "${packages[@]}"; do
 	echo "Installing $package..."
-	apt-get -y install "$package"
+	sudo apt -y install "$package"
 done
 
 echo "All packages from the setup script have been installed."
