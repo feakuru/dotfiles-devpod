@@ -2,7 +2,6 @@
 export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt -y update
 sudo apt -y upgrade
 
@@ -18,11 +17,14 @@ packages=(
     zsh
     zoxide
 )
-
 for package in "${packages[@]}"; do
 	echo "Installing $package..."
 	sudo apt -y install "$package"
 done
+
+echo "deb https://deb.debian.org/debian unstable main" | sudo tee -a /etc/apt/sources.list
+sudo apt -y update
+sudo apt -y install neovim
 
 echo "All packages from the setup script have been installed."
 
