@@ -29,9 +29,10 @@ sudo apt -y install neovim
 echo "All packages from the setup script have been installed."
 
 git clone https://github.com/feakuru/nvim-config.git "$XDG_CONFIG_HOME"/nvim
+rm -rf $ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
-sudo chsh --shell /bin/zsh
+sudo chsh vscode --shell /bin/zsh
 
 echo "All configs have been set up."
