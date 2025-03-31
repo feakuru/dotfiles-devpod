@@ -22,4 +22,5 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
 export EDITOR=nvim
+export GIT_EDITOR=nvim
 export TERM=xterm-256color
