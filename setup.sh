@@ -4,6 +4,7 @@ mkdir -p "$XDG_CONFIG_HOME"
 
 sudo apt -y update
 sudo apt -y upgrade
+sudo apt -y autoremove
 
 packages=(
     curl
@@ -18,8 +19,8 @@ packages=(
     zoxide
 )
 for package in "${packages[@]}"; do
-	echo "Installing $package..."
-	sudo apt -y install "$package"
+    echo "Installing $package..."
+    sudo apt -y install "$package"
 done
 
 echo "All packages from the setup script have been installed."
@@ -33,6 +34,7 @@ make CMAKE_BUILD_TYPE=RelWithDebInfo
 cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 cd ../..
 
+sudo rm -rf "$XDG_CONFIG_HOME"/nvim
 git clone https://github.com/feakuru/nvim-config.git "$XDG_CONFIG_HOME"/nvim
 sudo rm -rf /home/vscode/.oh-my-zsh
 sudo su -s /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" - vscode
