@@ -5,9 +5,11 @@ mkdir -p "$XDG_CONFIG_HOME"
 sudo apt -y update
 sudo apt -y upgrade
 sudo apt -y autoremove
+sudo apt -y install yes
 
 packages=(
     curl
+    cmake
     fd
     fzf
     git
@@ -20,7 +22,7 @@ packages=(
 )
 for package in "${packages[@]}"; do
     echo "Installing $package..."
-    sudo apt -y install "$package"
+    yes | sudo apt -y install "$package"
 done
 
 echo "All packages from the setup script have been installed."
