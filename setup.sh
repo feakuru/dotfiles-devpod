@@ -22,13 +22,16 @@ for package in "${packages[@]}"; do
 	sudo apt -y install "$package"
 done
 
-echo "deb https://deb.debian.org/debian unstable main" | sudo tee -a /etc/apt/sources.list
-echo "deb https://deb.debian.org/debian experimental main" | sudo tee -a /etc/apt/sources.list
-sudo apt -y update
-sudo apt -t experimental -y install neovim
-sudo apt install fzf
-
 echo "All packages from the setup script have been installed."
+echo "Building Neovim from source."
+
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout tags/v0.11.1
+echo $PATH
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+cd ../..
 
 git clone https://github.com/feakuru/nvim-config.git "$XDG_CONFIG_HOME"/nvim
 sudo rm -rf /home/vscode/.oh-my-zsh
