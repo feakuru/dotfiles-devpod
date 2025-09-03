@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "I am at $(pwd)"
+echo "Dir contents:"
+ls -la
 export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 
