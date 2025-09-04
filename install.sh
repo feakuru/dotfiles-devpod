@@ -1,7 +1,6 @@
 #!/bin/bash
-echo "I am at $(pwd)"
-echo "Dir contents:"
-ls -la
+CURRENT_DIR = $(pwd)
+echo "Starting dotfile setup from path: $CURRENT_DIR"
 export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 
@@ -29,16 +28,16 @@ for package in "${packages[@]}"; do
 done
 
 echo "All packages from the setup script have been installed."
-echo "Building Neovim from source."
-
-cd ~
-git clone https://github.com/neovim/neovim
-cd neovim
-git checkout tags/v0.11.1
-echo $PATH
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
-cd /code
+# echo "Building Neovim from source."
+#
+# cd ~
+# git clone https://github.com/neovim/neovim
+# cd neovim
+# git checkout tags/v0.11.1
+# echo $PATH
+# make CMAKE_BUILD_TYPE=RelWithDebInfo
+# cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
+cd $CURRENT_DIR
 
 sudo rm -rf "$XDG_CONFIG_HOME"/nvim
 git clone https://github.com/feakuru/nvim-config.git "$XDG_CONFIG_HOME"/nvim
