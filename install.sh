@@ -1,5 +1,5 @@
 #!/bin/bash
-CURRENT_DIR = $(pwd)
+CURRENT_DIR=$(pwd)
 echo "Starting dotfile setup from path: $CURRENT_DIR"
 export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
