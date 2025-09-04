@@ -29,8 +29,10 @@ done
 
 echo "Installing nvm and Node v20..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-bash -c "nvm install 20"
-bash -c "nvm use 20"
+export NVM_DIR="/usr/local/share/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install 20
+nvm use 20
 
 echo "All packages from the setup script have been installed."
 
