@@ -29,8 +29,8 @@ done
 
 echo "Installing nvm and Node v20..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-nvm install 20
-nvm use 20
+zsh -c "nvm install 20"
+zsh -c "nvm use 20"
 
 echo "All packages from the setup script have been installed."
 
