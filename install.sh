@@ -28,15 +28,15 @@ for package in "${packages[@]}"; do
 done
 
 echo "All packages from the setup script have been installed."
-# echo "Building Neovim from source."
-#
-# cd ~
-# git clone https://github.com/neovim/neovim
-# cd neovim
-# git checkout tags/v0.11.1
-# echo $PATH
-# make CMAKE_BUILD_TYPE=RelWithDebInfo
-# cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
+echo "Building Neovim from source."
+
+cd ~
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout tags/v0.11.1
+echo $PATH
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
 cd $CURRENT_DIR
 
 sudo rm -rf "$XDG_CONFIG_HOME"/nvim
