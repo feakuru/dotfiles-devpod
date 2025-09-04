@@ -27,9 +27,14 @@ for package in "${packages[@]}"; do
     yes | sudo apt -y install "$package"
 done
 
-echo "All packages from the setup script have been installed."
-echo "Building Neovim from source."
+echo "Installing nvm and Node v20..."
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+nvm install 20
+nvm use 20
 
+echo "All packages from the setup script have been installed."
+
+echo "Building Neovim from source."
 cd ~
 git clone https://github.com/neovim/neovim
 cd neovim
